@@ -11,6 +11,7 @@ const initialFormData = {
   description: "",
 };
 
+//This NewRecipeModal modal is used to add new Recipe
 const NewRecipeModal = ({ open, onCancel }) => {
   const { formData, setFormData } = useContext(GlobalContext);
   const { getAllRecipes, addNewRecipe } = RecipeService();

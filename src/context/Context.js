@@ -1,26 +1,25 @@
 import React from "react";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
+// This GlobalContext is used to pass data through files without props
 export const GlobalContext = createContext();
 
+//This initialFormData is Used for make formData data as empty
 const initialFormData = {
   recipeName: "",
   ingredients: "",
   description: "",
 };
 
+//This EditFormData is Used for make editFormData data as empty
 const EditFormData = {
-  RecipeId:"",
+  RecipeId: "",
   recipeName: "",
   ingredients: "",
   description: "",
 };
 
 const GlobalState = ({ children }) => {
-  
-  const [visible, setVisible] = useState(false);
-  const [addRecipe, setAddRecipe] = useState(false);
-
   const [formData, setFormData] = useState(initialFormData);
   const [editFormData, setEditFormData] = useState(EditFormData);
   const [recipes, setRecipes] = useState([]);
@@ -35,7 +34,7 @@ const GlobalState = ({ children }) => {
         selectRecipeData,
         setSelectRecipeData,
         editFormData,
-        setEditFormData
+        setEditFormData,
       }}
     >
       {children}

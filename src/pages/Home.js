@@ -28,6 +28,7 @@ const Home = () => {
   // This Method is used for find delete Recipe id
   const DeleteRecipeId = (e) => {
     setDeleteRecipeId(e._id);
+    setdeleteModal(true);
   };
 
   //This method is used for Delete Recipe
@@ -45,14 +46,15 @@ const Home = () => {
 
   // used for set setEditFormData state
   const EditFormData = (e) => {
-    updateModal();
     setEditFormData({
       RecipeId: e._id,
       recipeName: e.recipeName,
       ingredients: e.ingredients,
       description: e.description,
     });
+    updateModal();
   };
+
   //this method is used for set the state of Add recipe modal
   const addRecipeModal = () => {
     setAddRecipe((prevState) => !prevState);
@@ -71,6 +73,7 @@ const Home = () => {
   // Used for set Selected recipe data
   const selectedRecipeData = (e) => {
     setSelectRecipeData(e);
+    navigate("/recipeDetails");
   };
 
   return (
@@ -99,7 +102,6 @@ const Home = () => {
                 className="item-center justify-center text-center text-4xl font-bold"
                 onClick={() => {
                   selectedRecipeData(recipe);
-                  navigate("/recipeDetails");
                 }}
               >
                 {recipe.recipeName}
@@ -118,7 +120,6 @@ const Home = () => {
                   className="black_btn cursor-pointer items-center justify-center mx-auto"
                   onClick={() => {
                     DeleteRecipeId(recipe);
-                    setdeleteModal(true);
                   }}
                 >
                   Delete
@@ -128,14 +129,18 @@ const Home = () => {
               </div>
             </div>
           ))}
+
           {/* This is the modal of Add a New Recipe */}
           <NewRecipeModal open={addRecipe} onCancel={addRecipeModal} />
 
+          {/* This is the modal of Delete Recipe */}
           <DeleteModal
             open={deleteModal}
             onCancel={deleteModalState}
             DeleteRecipe={DeleteRecipe}
           />
+
+          {/* This is the modal of Update Recipe */}
           <UpdateModal
             open={editModal}
             onCancel={updateModal}

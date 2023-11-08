@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import axios from "axios";
 import { GlobalContext } from "../context/Context";
 
 const RecipeService = () => {
   const { setRecipes, formData, editFormData } = useContext(GlobalContext);
+
   const http = axios.create({
     baseURL: "http://localhost:3001",
     // process.env.REACT_APP_BASE_URL,
@@ -57,6 +58,7 @@ const RecipeService = () => {
     }
   };
 
+  //This method is used for Update Recipe Data
   const editRecipe = async () => {
     try {
       const editRecipe = await http.put("/recipe/updateRecipe", editFormData);
@@ -75,7 +77,7 @@ const RecipeService = () => {
     getAllRecipes,
     deleteRecipe,
     addNewRecipe,
-    editRecipe
+    editRecipe,
   };
 };
 

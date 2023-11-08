@@ -1,12 +1,12 @@
 import React from "react";
-import { Modal } from 'antd';
+import { Modal } from "antd";
 
+//This Modal is used to delete Recipe
 const DeleteModal = ({ open, onCancel, DeleteRecipe }) => {
   return (
     <Modal
       open={open}
       onCancel={onCancel}
-      
       footer={
         <div className="flex flex-row items-end justify-end">
           <h1

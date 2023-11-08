@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../context/Context";
 import RecipeService from "../service/RecipeService";
 
+// This UpdateModal is used to Update recipe data
 const UpdateModal = ({ open, onCancel, getAllRecipes }) => {
   const { editRecipe } = RecipeService();
   const { editFormData, setEditFormData } = useContext(GlobalContext);

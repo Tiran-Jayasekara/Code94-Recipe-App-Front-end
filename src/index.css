@@ -2,15 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 .black_btn {
   @apply rounded-lg border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-xs font-inter flex items-center justify-center;
 }
 
 .blue_btn {
-    @apply rounded-lg  border-blue-800 bg-blue-600 py-1.5 px-5 text-white transition-all hover:bg-yellow-600 hover:text-white text-center text-xs font-inter flex items-center justify-center;
-  }
+  @apply rounded-lg  border-blue-800 bg-blue-600 py-1.5 px-5 text-white transition-all hover:bg-yellow-600 hover:text-white text-center text-xs font-inter flex items-center justify-center;
+}
 
 .outline_btn {
   @apply rounded-xl border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
