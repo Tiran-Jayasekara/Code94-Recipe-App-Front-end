@@ -1,5 +1,12 @@
 # Getting Started with Create React App
 
+![UpdateRecipe](https://github.com/Tiran-Jayasekara/Code94-Recipe-App-Front-end/assets/70306643/deaf5477-2fe1-478d-92cc-0f677bca094c)
+![RecipeInformation](https://github.com/Tiran-Jayasekara/Code94-Recipe-App-Front-end/assets/70306643/793d1718-d1ab-4c49-b908-66f295eafb72)
+![NewRecipe](https://github.com/Tiran-Jayasekara/Code94-Recipe-App-Front-end/assets/70306643/d4ce6239-a82f-4b7c-84ca-ab2efe2a3369)
+![HomePage](https://github.com/Tiran-Jayasekara/Code94-Recipe-App-Front-end/assets/70306643/f4622510-95e6-4537-891b-274bcbc035ea)
+![DeleteRecipe](https://github.com/Tiran-Jayasekara/Code94-Recipe-App-Front-end/assets/70306643/8a596eac-4c31-4dbd-bbbc-cb44931dc675)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
