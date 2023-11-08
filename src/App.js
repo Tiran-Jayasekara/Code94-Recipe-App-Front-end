@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import RecipeDetails from "./pages/RecipeDetails";
+import UpdateRecipe from "./pages/UpdateRecipe";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/recipeDetails" element={<RecipeDetails />}></Route>
+          <Route path="/updateRecipe" element={<UpdateRecipe/>}></Route>
         </Routes>
       </Router>
     </div>

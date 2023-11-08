@@ -5,12 +5,10 @@ import RecipeService from "../service/RecipeService";
 import { message } from "antd";
 import NewRecipeModal from "../components/NewRecipeModal";
 import DeleteModal from "../components/DeleteModal";
-import UpdateModal from "../components/UpdateModal";
 
 const Home = () => {
   const navigate = useNavigate();
   const [deleteModal, setdeleteModal] = useState(false);
-  const [editModal, setEditModal] = useState(false);
   const [addRecipe, setAddRecipe] = useState(false);
   const [deleteRecipeId, setDeleteRecipeId] = useState();
   const { getAllRecipes, deleteRecipe } = RecipeService();
@@ -52,17 +50,13 @@ const Home = () => {
       ingredients: e.ingredients,
       description: e.description,
     });
-    updateModal();
+    navigate("/updateRecipe");
+    // updateModal();
   };
 
   //this method is used for set the state of Add recipe modal
   const addRecipeModal = () => {
     setAddRecipe((prevState) => !prevState);
-  };
-
-  //This method is used for set the state of Update Modal
-  const updateModal = () => {
-    setEditModal((prevState) => !prevState);
   };
 
   //this method is used for set the state of delete modal
@@ -138,13 +132,6 @@ const Home = () => {
             open={deleteModal}
             onCancel={deleteModalState}
             DeleteRecipe={DeleteRecipe}
-          />
-
-          {/* This is the modal of Update Recipe */}
-          <UpdateModal
-            open={editModal}
-            onCancel={updateModal}
-            getAllRecipes={getAllRecipes}
           />
         </div>
       </div>

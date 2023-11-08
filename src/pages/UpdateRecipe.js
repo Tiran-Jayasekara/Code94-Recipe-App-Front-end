@@ -1,15 +1,17 @@
 import React from "react";
-import { Modal } from "antd";
-import { message } from "antd";
 import { useContext } from "react";
 import { GlobalContext } from "../context/Context";
+import { message } from "antd";
 import RecipeService from "../service/RecipeService";
+import { useNavigate } from "react-router-dom";
 
-// This UpdateModal is used to Update recipe data
-const UpdateModal = ({ open, onCancel, getAllRecipes }) => {
-  const { editRecipe } = RecipeService();
+//This Function for Update Recipe
+const UpdateRecipe = () => {
   const { editFormData, setEditFormData } = useContext(GlobalContext);
+  const { editRecipe, getAllRecipes } = RecipeService();
+  const navigate = useNavigate();
 
+  //Validate editRecipeData
   const editRecipeData = async () => {
     if (
       !editFormData.recipeName ||
@@ -22,35 +24,23 @@ const UpdateModal = ({ open, onCancel, getAllRecipes }) => {
       if (responce.data.message === "Update Success") {
         message.success("Update Successfull");
         getAllRecipes();
-        onCancel();
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
       } else {
         message.success("Update Unsuccessfull");
       }
     }
   };
+
   return (
-    <Modal
-      open={open}
-      onCancel={onCancel}
-      footer={
-        <div className="flex flex-row items-end justify-end">
-          <h1
-            className="black_btn w-fit ml-2 cursor-pointer"
-            key="ok"
-            type="primary"
-            onClick={onCancel}
-          >
-            Cancel
-          </h1>
-        </div>
-      }
-    >
-      <div className="flex flex-col">
-        <div className="flex text- items-center justify-center text-4xl font-bold p-2 md:mt-2 mt-8 ">
+    <div className="w-full">
+      <div className="flex flex-col w-auto justify-center items-center bg-white p-10 mt-20 rounded-2xl bg-opacity-60 md:mx-60">
+        <div className="flex text-4xl font-bold p-2 md:mt-2 mt-8 ">
           <h1>Update Recipe</h1>
         </div>
-        <div className="flex flex-row justify-between mt-10 ">
-          <p className="pt-2 px-0 pb-2 pl-2 mr-0 mt-0 ml-0 text-xl font-bold">
+        <div className="flex flex-row justify-between mt-4 w-full ">
+          <p className="pt-2 px-0 pb-2 pl-2 mt-0 ml-0 text-xl font-bold justify-start text-left mr-10">
             Recipe Name :
           </p>
           <input
@@ -63,15 +53,15 @@ const UpdateModal = ({ open, onCancel, getAllRecipes }) => {
                 recipeName: event.target.value,
               });
             }}
-            className="border placeholder-gray-400 focus:outline-none focus:border-black w-fit pt-1 px-2 pb-1 pl-2 mr-0 mt-0 ml-0 text-base block bg-opacity-40 backdrop-blur-el bg-white border-gray-300 rounded-md"
+            className="border flex-1 placeholder-gray-400 focus:outline-none focus:border-black w-full pt-1 px-2 pb-1 pl-2 mr-0 mt-0 ml-0 text-base block bg-opacity-40 backdrop-blur-el bg-white border-gray-300 rounded-md"
           />
         </div>
 
-        <div className="flex flex-row justify-between mt-4 ">
-          <p className="pt-2 px-0 pb-2 pl-2 mr-0 mt-0 ml-0 text-xl font-bold">
+        <div className="flex flex-row justify-between mt-4 w-full ">
+          <p className="pt-2 px-0 pb-2 pl-2 mt-0 ml-0 text-xl font-bold justify-start text-left mr-10">
             Ingredients :
           </p>
-          <input
+          <textarea
             placeholder="Add Ingredients"
             type="text"
             value={editFormData.ingredients}
@@ -81,15 +71,15 @@ const UpdateModal = ({ open, onCancel, getAllRecipes }) => {
                 ingredients: event.target.value,
               });
             }}
-            className="border placeholder-gray-400 focus:outline-none focus:border-black w-fit pt-1 px-2 pb-1 pl-2 mr-0 mt-0 ml-0 text-base block bg-opacity-40 backdrop-blur-el bg-white border-gray-300 rounded-md"
+            className="border flex-1 h-full placeholder-gray-400 focus:outline-none focus:border-black w-full pt-1 px-2 pb-1 pl-2 mr-0 mt-0 ml-0 text-base block bg-opacity-40 backdrop-blur-el bg-white border-gray-300 rounded-md"
           />
         </div>
 
-        <div className="flex flex-row justify-between mt-4 ">
-          <p className="pt-2 px-0 pb-2 pl-2 mr-0 mt-0 ml-0 text-xl font-bold">
+        <div className="flex flex-row justify-between mt-4 w-full ">
+          <p className="pt-2 px-0 pb-2 pl-2 mt-0 ml-0 text-xl font-bold justify-start text-left mr-10">
             Description :
           </p>
-          <input
+          <textarea
             placeholder="Add Description"
             type="text"
             value={editFormData.description}
@@ -99,7 +89,7 @@ const UpdateModal = ({ open, onCancel, getAllRecipes }) => {
                 description: event.target.value,
               });
             }}
-            className="border placeholder-gray-400 focus:outline-none focus:border-black w-fit pt-1 px-2 pb-1 pl-2 mr-0 mt-0 ml-0 text-base block bg-opacity-40 backdrop-blur-el bg-white border-gray-300 rounded-md"
+            className="border flex-1 placeholder-gray-400 focus:outline-none focus:border-black w-full pt-1 px-2 pb-1 pl-2 mr-0 mt-0 ml-0 text-base block bg-opacity-40 backdrop-blur-el bg-white border-gray-300 rounded-md"
           />
         </div>
 
@@ -114,8 +104,8 @@ const UpdateModal = ({ open, onCancel, getAllRecipes }) => {
           </button>
         </div>
       </div>
-    </Modal>
+    </div>
   );
 };
 
-export default UpdateModal;
+export default UpdateRecipe;

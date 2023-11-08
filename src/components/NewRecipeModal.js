@@ -78,7 +78,7 @@ const NewRecipeModal = ({ open, onCancel }) => {
                 recipeName: event.target.value,
               });
             }}
-            className="border placeholder-gray-400 focus:outline-none focus:border-black w-fit pt-1 px-2 pb-1 pl-2 mr-0 mt-0 ml-0 text-base block bg-opacity-40 backdrop-blur-el bg-white border-gray-300 rounded-md"
+            className="border flex-1 ml-4 w-full placeholder-gray-400 focus:outline-none focus:border-black pt-1 px-2 pb-1 pl-2 mr-0 mt-0 text-base block bg-opacity-40 backdrop-blur-el bg-white border-gray-300 rounded-md"
           />
         </div>
 
@@ -86,7 +86,7 @@ const NewRecipeModal = ({ open, onCancel }) => {
           <p className="pt-2 px-0 pb-2 pl-2 mr-0 mt-0 ml-0 text-xl font-bold">
             Ingredients :
           </p>
-          <input
+          <textarea
             placeholder="Add Ingredients"
             type="text"
             value={formData.ingredients}
@@ -96,7 +96,7 @@ const NewRecipeModal = ({ open, onCancel }) => {
                 ingredients: event.target.value,
               });
             }}
-            className="border placeholder-gray-400 focus:outline-none focus:border-black w-fit pt-1 px-2 pb-1 pl-2 mr-0 mt-0 ml-0 text-base block bg-opacity-40 backdrop-blur-el bg-white border-gray-300 rounded-md"
+            className="border flex-1 ml-4 w-full placeholder-gray-400 focus:outline-none focus:border-black pt-1 px-2 pb-1 pl-2 mr-0 mt-0 text-base block bg-opacity-40 backdrop-blur-el bg-white border-gray-300 rounded-md"
           />
         </div>
 
@@ -104,7 +104,7 @@ const NewRecipeModal = ({ open, onCancel }) => {
           <p className="pt-2 px-0 pb-2 pl-2 mr-0 mt-0 ml-0 text-xl font-bold">
             Description :
           </p>
-          <input
+          <textarea
             placeholder="Add Description"
             type="text"
             value={formData.description}
@@ -114,7 +114,7 @@ const NewRecipeModal = ({ open, onCancel }) => {
                 description: event.target.value,
               });
             }}
-            className="border placeholder-gray-400 focus:outline-none focus:border-black w-fit pt-1 px-2 pb-1 pl-2 mr-0 mt-0 ml-0 text-base block bg-opacity-40 backdrop-blur-el bg-white border-gray-300 rounded-md"
+            className="border flex-1 ml-4 w-full placeholder-gray-400 focus:outline-none focus:border-black pt-1 px-2 pb-1 pl-2 mr-0 mt-0 text-base block bg-opacity-40 backdrop-blur-el bg-white border-gray-300 rounded-md"
           />
         </div>
 
